@@ -22,8 +22,22 @@ jobs:
       - name: Extract Tag Name
         id: get_tag_name
         run: echo "::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}"
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: app-release-${{ steps.get_tag_name.outputs.TAG_NAME }}.apk
-          path: app/build/outputs/apk/release/app-release.apk
+          tag_name: ${{ steps.get_tag_name.outputs.TAG_NAME }}
+          release_name: Release ${{ steps.get_tag_name.outputs.TAG_NAME }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./app/build/outputs/apk/release/app-release.apk
+          asset_name: app-release-${{ steps.get_tag_name.outputs.TAG_NAME }}.apk
+          asset_content_type: application/vnd.android.package-archive
