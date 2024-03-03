@@ -2,14 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply greenDao plugin
 apply from: 'and-res-guard.gradle'
 
-def keyFile = file(findProperty("tianma.keystore.path") as String)
-def propertyFile = file(findProperty("tianma.signature.path") as String)
-
-def keyProps = new Properties()
-if (propertyFile.exists()) {
-    keyProps.load(new FileInputStream(propertyFile))
-}
-
 def static releaseTime() {
     return new Date().format("yyMMdd", TimeZone.default)
 }
@@ -20,8 +12,8 @@ android {
         applicationId "com.github.xtjun.xposed.forwardSms"
         minSdkVersion 23
         targetSdkVersion 27
-        versionCode 5
-        versionName "0.0.5"
+        versionCode 6
+        versionName "0.0.6"
 
         buildConfigField("String", "LOG_TAG", "\"xposedForwardSms\"")
         buildConfigField("int", "MODULE_VERSION", "45")
@@ -39,10 +31,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile keyFile
-            storePassword keyProps['STORE_PASSWORD']
-            keyAlias keyProps['KEY_ALIAS']
-            keyPassword keyProps['KEY_PASSWORD']
+            storeFile file('../forward_sms.jks')
+            storePassword 'asdf1234'
+            keyAlias 'key0'
+            keyPassword 'asdf1234'
         }
     }
 
@@ -52,9 +44,7 @@ android {
             buildConfigField("boolean", "LOG_TO_XPOSED", "true")
             buildConfigField("boolean", "LOG_TO_EDXPOSED", "true")
 
-            if (keyFile.exists()) {
-                signingConfig signingConfigs.release
-            }
+            signingConfig signingConfigs.release
         }
 
         alpha {
@@ -67,9 +57,7 @@ android {
             buildConfigField("boolean", "LOG_TO_XPOSED", "true")
             buildConfigField("boolean", "LOG_TO_EDXPOSED", "true")
 
-            if (keyFile.exists()) {
-                signingConfig signingConfigs.release
-            }
+            signingConfig signingConfigs.release
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -82,9 +70,8 @@ android {
             buildConfigField("int", "LOG_LEVEL", "4")
             buildConfigField("boolean", "LOG_TO_XPOSED", "true")
             buildConfigField("boolean", "LOG_TO_EDXPOSED", "true")
-            if (keyFile.exists()) {
-                signingConfig signingConfigs.release
-            }
+
+            signingConfig signingConfigs.release
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
