@@ -38,6 +38,7 @@
     <string name="pref_forward_channel_entry_dingTalk">钉钉</string>
     <string name="pref_forward_channel_entry_bark">Bark</string>
     <string name="pref_forward_channel_entry_wxcp">企业微信应用消息</string>
+    <string name="pref_forward_channel_entry_feishu">飞书</string>
 
     <string name="pref_channel_config_get_url_title">GET的URL</string>
     <string name="pref_channel_config_get_url_dialogTitle">GET的URL</string>
@@ -59,6 +60,10 @@
     <string name="pref_channel_config_ding_token_title">钉钉ACCESS_TOKEN</string>
     <string name="pref_channel_config_ding_token_dialogTitle">钉钉机器人的ACCESS_TOKEN</string>
     <string name="pref_channel_config_ding_token_summary">输入您创建的钉钉机器人的ACCESS_TOKEN</string>
+
+    <string name="pref_channel_config_feishu_title">飞书机器人</string>
+    <string name="pref_channel_config_feishu_dialogTitle">飞书机器人URL</string>
+    <string name="pref_channel_config_feishu_summary">输入您创建的飞书机器人URL</string>
 
     <string name="pref_channel_config_bark_url_title">Bark的URL</string>
     <string name="pref_channel_config_bark_url_dialogTitle">Bark的URL</string>

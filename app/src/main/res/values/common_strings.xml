@@ -22,6 +22,7 @@
     <string name="pref_channel_config_post_url">pref_channel_config_post_url</string>
     <string name="pref_channel_config_post_type">pref_channel_config_post_type</string>
     <string name="pref_channel_config_post_body">pref_channel_config_post_body</string>
+    <string name="pref_channel_config_feishu_url">pref_channel_config_feishu_url</string>
     <string name="pref_test_sms">pref_test_sms</string>
     <string name="pref_channel_config_wxcp_corpid">pref_channel_config_wxcp_corpid</string>
     <string name="pref_channel_config_wxcp_agentid">pref_channel_config_wxcp_agentid</string>
@@ -39,6 +40,7 @@
         <item>@string/pref_forward_channel_dingTalk</item>
         <item>@string/pref_forward_channel_bark</item>
         <item>@string/pref_forward_channel_wxcp</item>
+        <item>@string/pref_forward_channel_feishu</item>
     </string-array>
 
     <string name="pref_forward_channel_default">GET</string>
@@ -47,6 +49,7 @@
     <string name="pref_forward_channel_dingTalk">DING</string>
     <string name="pref_forward_channel_bark">BARK</string>
     <string name="pref_forward_channel_wxcp">WXCP</string>
+    <string name="pref_forward_channel_feishu">FEISHU</string>
 
     <string-array name="pref_forward_channel_entry_list">
         <item>@string/pref_forward_channel_entry_get</item>
@@ -54,6 +57,7 @@
         <item>@string/pref_forward_channel_entry_dingTalk</item>
         <item>@string/pref_forward_channel_entry_bark</item>
         <item>@string/pref_forward_channel_entry_wxcp</item>
+        <item>@string/pref_forward_channel_feishu</item>
     </string-array>
 
 

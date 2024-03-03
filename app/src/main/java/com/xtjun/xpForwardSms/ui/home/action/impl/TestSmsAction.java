@@ -65,6 +65,9 @@ public class TestSmsAction extends RunnableAction {
                     }
                     suc = HttpUtils.postWxcpMsg(token,SPUtils.getWxAgentid(sp),SPUtils.getWxTouser(sp),title,content);
                     break;
+                case Const.CHANNEL_FEISHU:
+                    suc = HttpUtils.postFeishuTalk(SPUtils.getFeishuKey(sp), title, content);
+                    break;
                 default:
                     break;
             }

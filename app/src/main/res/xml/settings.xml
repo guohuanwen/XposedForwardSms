@@ -87,6 +87,15 @@
 
         <EditTextPreference
             android:dependency="@string/pref_enable"
+            android:dialogTitle="@string/pref_channel_config_feishu_dialogTitle"
+            android:negativeButtonText="@string/cancel"
+            android:positiveButtonText="@string/confirm"
+            android:key="@string/pref_channel_config_feishu_url"
+            android:title="@string/pref_channel_config_feishu_title"
+            android:summary="@string/pref_channel_config_feishu_summary"/>
+
+        <EditTextPreference
+            android:dependency="@string/pref_enable"
             android:dialogTitle="@string/pref_channel_config_bark_url_dialogTitle"
             android:negativeButtonText="@string/cancel"
             android:positiveButtonText="@string/confirm"

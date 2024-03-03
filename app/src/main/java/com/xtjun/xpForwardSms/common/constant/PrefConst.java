@@ -32,6 +32,8 @@ public interface PrefConst {
 
     String PREF_CHANNEL_CONFIG_BARK_URL = "pref_channel_config_bark_url";
 
+    String PREF_CHANNEL_CONFIG_FEISHU_URL = "pref_channel_config_feishu_url";
+
     String PREF_CHANNEL_CONFIG_WXCP_CORPID = "pref_channel_config_wxcp_corpid";
     String PREF_CHANNEL_CONFIG_WXCP_AGENTID = "pref_channel_config_wxcp_agentid";
     String PREF_CHANNEL_CONFIG_WXCP_CORPSECRET = "pref_channel_config_wxcp_corpsecret";

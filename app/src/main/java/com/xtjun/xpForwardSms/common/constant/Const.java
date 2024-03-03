@@ -47,6 +47,7 @@ public interface Const {
     String CHANNEL_DING = "DING";
     String CHANNEL_BARK = "BARK";
     String CHANNEL_WXCP = "WXCP";
+    String CHANNEL_FEISHU = "FEISHU";
 
     String POST_TYPE_JSON = "JSON";
     String POST_TYPE_FROM = "FORM";

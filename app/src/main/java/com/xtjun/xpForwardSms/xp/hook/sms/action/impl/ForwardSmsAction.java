@@ -59,6 +59,9 @@ public class ForwardSmsAction extends RunnableAction {
                     }
                     suc = XHttpUtils.postWxcpMsg(token,XSPUtils.getWxAgentid(sp),XSPUtils.getWxTouser(sp),title,content);
                     break;
+                case Const.CHANNEL_FEISHU:
+                    suc = XHttpUtils.postFeishuTalk(XSPUtils.getFeishuKey(sp), title, content);
+                    break;
                 default:
                     break;
             }

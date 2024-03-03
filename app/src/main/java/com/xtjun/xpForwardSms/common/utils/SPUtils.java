@@ -71,6 +71,13 @@ public class SPUtils {
     }
 
     /**
+     * 飞书配置
+     */
+    public static String getFeishuKey(SharedPreferences preferences) {
+        return preferences.getString(PrefConst.PREF_CHANNEL_CONFIG_FEISHU_URL, "");
+    }
+
+    /**
      * Bark配置
      */
     public static String getBarkUrl(SharedPreferences preferences) {

@@ -155,6 +155,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             findPreference(PrefConst.PREF_CHANNEL_CONFIG_WXCP_TOUSER).setOnPreferenceChangeListener(listener);
             findPreference(PrefConst.PREF_FILTER_ENABLE).setOnPreferenceChangeListener(listener);
             findPreference(PrefConst.PREF_FILTER_KEYWORDS).setOnPreferenceChangeListener(listener);
+            findPreference(PrefConst.PREF_CHANNEL_CONFIG_FEISHU_URL).setOnPreferenceChangeListener(listener);
     }
 
     @Override
@@ -228,7 +229,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 PrefConst.PREF_CHANNEL_CONFIG_WXCP_CORPID,
                 PrefConst.PREF_CHANNEL_CONFIG_WXCP_AGENTID,
                 PrefConst.PREF_CHANNEL_CONFIG_WXCP_CORPSECRET,
-                PrefConst.PREF_CHANNEL_CONFIG_WXCP_TOUSER
+                PrefConst.PREF_CHANNEL_CONFIG_WXCP_TOUSER,
+                PrefConst.PREF_CHANNEL_CONFIG_FEISHU_URL
         );
         switch (newValue) {
             case Const.CHANNEL_GET:
@@ -257,6 +259,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                         PrefConst.PREF_CHANNEL_CONFIG_WXCP_CORPSECRET,
                         PrefConst.PREF_CHANNEL_CONFIG_WXCP_TOUSER
                 );
+                break;
+            case Const.CHANNEL_FEISHU:
+                setPrefVisible(true, PrefConst.PREF_CHANNEL_CONFIG_FEISHU_URL);
                 break;
             default:
                 break;
@@ -333,7 +338,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         } else if (value instanceof Long) {
             msp.edit().putLong(key, (Long) value).apply();
         } else {
-            msp.edit().putString(key, (String) value).apply();
+            msp.edit().putString(key, String.valueOf(value)).apply();
         }
     }
 

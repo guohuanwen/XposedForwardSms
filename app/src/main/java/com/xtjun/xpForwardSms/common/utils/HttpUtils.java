@@ -2,6 +2,8 @@ package com.xtjun.xpForwardSms.common.utils;
 
 import com.xtjun.xpForwardSms.common.constant.Const;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -136,6 +138,30 @@ public class HttpUtils {
             return true;
         } catch (IOException e) {
             XLog.e("postWxcpMsg error: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean postFeishuTalk(String feishuKey, String title, String content) {
+        try {
+            JSONObject contentJSON = new JSONObject();
+            JSONObject msgJSON = new JSONObject();
+            contentJSON.put("text", title + "\n" + content);
+            msgJSON.put("msg_type", "text");
+            msgJSON.put("content", contentJSON);
+            String url = feishuKey;
+            RequestBody requestBody = RequestBody
+                    .create(MediaType.parse("application/json"),
+                            msgJSON.toString()
+                    );
+
+            Request request = new Request.Builder().url(url).post(requestBody).build();
+            Response response = client.newCall(request).execute();//发送请求
+            String result = response.body() != null ? response.body().string() : "";
+            XLog.d("postFeishuTalk successfully: " + result);
+            return true;
+        } catch (Exception e) {
+            XLog.e("postFeishuTalk error: " + e.getMessage());
             return false;
         }
     }
